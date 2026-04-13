@@ -2,151 +2,171 @@
 
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>OFW News Digest</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
 <style>
   :root {
-    --navy: #0a1628; --deep: #0d1f3c; --blue: #1a3a6b;
-    --gold: #e8a020; --gold-light: #f5c050;
-    --cream: #fdf6e8; --white: #ffffff; --gray: #8a9ab5;
+    --navy:#0a1628; --deep:#0d1f3c; --blue:#1a3a6b;
+    --gold:#e8a020; --gold-light:#f5c050;
+    --cream:#fdf6e8; --white:#fff; --gray:#8a9ab5;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--navy); color: var(--cream); font-family: 'Source Sans 3', sans-serif; min-height: 100vh; padding: 0 0 60px; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--navy);color:var(--cream);font-family:'Source Sans 3',sans-serif;min-height:100vh;padding:0 0 60px}
 
-header {
-background: linear-gradient(135deg, var(–deep) 0%, var(–blue) 100%);
-border-bottom: 3px solid var(–gold);
-padding: 28px 24px 22px; text-align: center; position: relative; overflow: hidden;
-}
-header::before { content:’’; position:absolute; top:-60px; left:-60px; width:200px; height:200px; background:radial-gradient(circle,rgba(232,160,32,.12) 0%,transparent 70%); border-radius:50%; }
-header::after  { content:’’; position:absolute; bottom:-40px; right:-40px; width:160px; height:160px; background:radial-gradient(circle,rgba(232,160,32,.08) 0%,transparent 70%); border-radius:50%; }
-.flag-stripe { display:flex; justify-content:center; gap:6px; margin-bottom:14px; }
-.flag-stripe span { width:28px; height:4px; border-radius:2px; }
-.s1{background:#0038A8} .s2{background:#CE1126} .s3{background:#FCD116} .s4{background:#FFF}
-header h1 { font-family:‘Playfair Display’,serif; font-size:2rem; font-weight:900; color:var(–white); position:relative; line-height:1.1; }
-header h1 span { color:var(–gold); }
-header p { font-size:.82rem; color:var(–gray); margin-top:6px; letter-spacing:.5px; text-transform:uppercase; font-weight:600; position:relative; }
+header{background:linear-gradient(135deg,var(–deep) 0%,var(–blue) 100%);border-bottom:3px solid var(–gold);padding:28px 24px 22px;text-align:center;position:relative;overflow:hidden}
+header::before{content:’’;position:absolute;top:-60px;left:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(232,160,32,.12) 0%,transparent 70%);border-radius:50%}
+header::after{content:’’;position:absolute;bottom:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(232,160,32,.08) 0%,transparent 70%);border-radius:50%}
+.flag{display:flex;justify-content:center;gap:6px;margin-bottom:14px}
+.flag span{width:28px;height:4px;border-radius:2px}
+.s1{background:#0038A8}.s2{background:#CE1126}.s3{background:#FCD116}.s4{background:#FFF}
+header h1{font-family:‘Playfair Display’,serif;font-size:2rem;font-weight:900;color:var(–white);line-height:1.1;position:relative}
+header h1 span{color:var(–gold)}
+header p{font-size:.82rem;color:var(–gray);margin-top:6px;letter-spacing:.5px;text-transform:uppercase;font-weight:600;position:relative}
 
-main { max-width:720px; margin:0 auto; padding:28px 16px 0; }
+main{max-width:720px;margin:0 auto;padding:24px 16px 0}
 
-.api-section { background:var(–deep); border:1px solid rgba(232,160,32,.25); border-radius:12px; padding:18px 20px; margin-bottom:20px; }
-.api-section label { display:block; font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:var(–gold); margin-bottom:8px; }
-.api-section input { width:100%; background:var(–navy); border:1px solid rgba(255,255,255,.12); border-radius:8px; padding:10px 14px; color:var(–cream); font-family:‘Source Sans 3’,sans-serif; font-size:.9rem; outline:none; transition:border .2s; }
-.api-section input:focus { border-color:var(–gold); }
-.api-section input::placeholder { color:var(–gray); }
-.api-hint { font-size:.78rem; color:var(–gray); margin-top:10px; line-height:1.7; }
-.api-hint a { color:var(–gold-light); text-decoration:none; font-weight:600; }
-.steps { margin-top:8px; list-style:none; display:flex; flex-direction:column; gap:4px; }
-.steps li { font-size:.78rem; color:var(–gray); padding-left:20px; position:relative; line-height:1.5; }
-.steps li::before { content:attr(data-n); position:absolute; left:0; color:var(–gold); font-weight:700; }
+.card{background:var(–deep);border-radius:12px;padding:18px 20px;margin-bottom:16px}
+.card.gold-border{border:1px solid rgba(232,160,32,.3)}
+.card.dim-border{border:1px solid rgba(255,255,255,.08)}
 
-.controls { background:var(–deep); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:20px; margin-bottom:20px; }
-.controls-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px; }
-.field label { display:block; font-size:.73rem; font-weight:600; text-transform:uppercase; letter-spacing:.8px; color:var(–gray); margin-bottom:6px; }
-.field select, .field input[type=“text”] { width:100%; background:var(–navy); border:1px solid rgba(255,255,255,.1); border-radius:8px; padding:10px 12px; color:var(–cream); font-family:‘Source Sans 3’,sans-serif; font-size:.88rem; outline:none; transition:border .2s; cursor:pointer; appearance:none; }
-.field select:focus, .field input[type=“text”]:focus { border-color:var(–gold); }
-.topics-field { grid-column:1/-1; }
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(–gold);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.card-label .dot{width:6px;height:6px;background:var(–gold);border-radius:50%}
 
-.run-btn { width:100%; background:linear-gradient(135deg,var(–gold) 0%,#c87010 100%); border:none; border-radius:10px; padding:15px; font-family:‘Playfair Display’,serif; font-size:1.05rem; font-weight:700; color:var(–navy); cursor:pointer; transition:opacity .2s,transform .15s; display:flex; align-items:center; justify-content:center; gap:8px; }
-.run-btn:hover { opacity:.92; transform:translateY(-1px); }
-.run-btn:active { transform:translateY(0); }
-.run-btn:disabled { opacity:.45; cursor:not-allowed; transform:none; }
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.field label{display:block;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(–gray);margin-bottom:5px}
+.field input,.field select{width:100%;background:var(–navy);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 12px;color:var(–cream);font-family:‘Source Sans 3’,sans-serif;font-size:.88rem;outline:none;transition:border .2s;appearance:none;cursor:pointer}
+.field input:focus,.field select:focus{border-color:var(–gold)}
+.field input::placeholder{color:var(–gray)}
+.full{grid-column:1/-1}
 
-.status-bar { display:none; align-items:center; gap:10px; background:rgba(232,160,32,.08); border:1px solid rgba(232,160,32,.2); border-radius:8px; padding:12px 16px; margin-bottom:20px; font-size:.85rem; color:var(–gold-light); }
-.status-bar.visible { display:flex; }
-.spinner { width:16px; height:16px; border:2px solid rgba(232,160,32,.3); border-top-color:var(–gold); border-radius:50%; animation:spin .8s linear infinite; flex-shrink:0; }
-@keyframes spin { to { transform:rotate(360deg); } }
+.hint{font-size:.75rem;color:var(–gray);margin-top:8px;line-height:1.65}
+.hint a{color:var(–gold-light);font-weight:600;text-decoration:none}
+.hint ol{margin-top:6px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:3px}
+.hint ol li{padding-left:18px;position:relative}
+.hint ol li::before{content:attr(data-n);position:absolute;left:0;color:var(–gold);font-weight:700}
 
-.error-box { display:none; background:rgba(192,57,43,.12); border:1px solid rgba(192,57,43,.35); border-radius:8px; padding:14px 16px; margin-bottom:20px; font-size:.85rem; color:#e88070; line-height:1.6; }
-.error-box.visible { display:block; }
+.run-btn{width:100%;background:linear-gradient(135deg,var(–gold) 0%,#c87010 100%);border:none;border-radius:10px;padding:15px;font-family:‘Playfair Display’,serif;font-size:1.05rem;font-weight:700;color:var(–navy);cursor:pointer;transition:opacity .2s,transform .15s;display:flex;align-items:center;justify-content:center;gap:8px}
+.run-btn:hover{opacity:.92;transform:translateY(-1px)}
+.run-btn:active{transform:translateY(0)}
+.run-btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
 
-.results { display:none; }
-.results.visible { display:block; }
-.results-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:10px; }
-.results-header h2 { font-family:‘Playfair Display’,serif; font-size:1.25rem; font-weight:700; color:var(–white); }
-.results-header h2 span { color:var(–gold); }
-.meta-tag { font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:.8px; background:rgba(232,160,32,.15); color:var(–gold); border-radius:20px; padding:4px 12px; border:1px solid rgba(232,160,32,.25); }
+.status-bar{display:none;align-items:center;gap:10px;background:rgba(232,160,32,.08);border:1px solid rgba(232,160,32,.2);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.85rem;color:var(–gold-light)}
+.status-bar.on{display:flex}
+.spinner{width:16px;height:16px;border:2px solid rgba(232,160,32,.3);border-top-color:var(–gold);border-radius:50%;animation:spin .8s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-.news-list { display:flex; flex-direction:column; gap:14px; margin-bottom:24px; }
-.news-card { background:var(–deep); border:1px solid rgba(255,255,255,.07); border-radius:12px; padding:18px 20px; position:relative; transition:border-color .2s; animation:fadeUp .4s ease both; }
-.news-card:hover { border-color:rgba(232,160,32,.3); }
-@keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
-.news-card:nth-child(1){animation-delay:.05s} .news-card:nth-child(2){animation-delay:.1s}
-.news-card:nth-child(3){animation-delay:.15s} .news-card:nth-child(4){animation-delay:.2s}
-.news-card:nth-child(5){animation-delay:.25s}
-.card-num { position:absolute; top:16px; right:18px; font-family:‘Playfair Display’,serif; font-size:1.8rem; font-weight:900; color:rgba(232,160,32,.15); line-height:1; }
-.card-headline { font-family:‘Playfair Display’,serif; font-size:1.05rem; font-weight:700; color:var(–white); line-height:1.4; margin-bottom:8px; padding-right:36px; }
-.card-summary { font-size:.88rem; color:#b0c0d8; line-height:1.6; margin-bottom:12px; }
-.card-footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
-.card-source { font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:.7px; color:var(–gold); background:rgba(232,160,32,.1); padding:3px 10px; border-radius:4px; }
-.card-relevance { font-size:.75rem; color:var(–gray); }
+.err{display:none;background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.35);border-radius:8px;padding:14px 16px;margin-bottom:16px;font-size:.85rem;color:#e88070;line-height:1.6}
+.err.on{display:block}
 
-.fb-preview-section { background:var(–deep); border:1px solid rgba(255,255,255,.07); border-radius:12px; padding:20px; margin-bottom:20px; }
-.fb-preview-section h3 { font-family:‘Playfair Display’,serif; font-size:1rem; font-weight:700; color:var(–white); margin-bottom:4px; display:flex; align-items:center; gap:8px; }
-.fb-badge { background:#1877F2; color:white; font-family:‘Source Sans 3’,sans-serif; font-size:.7rem; font-weight:700; padding:2px 8px; border-radius:4px; letter-spacing:.5px; text-transform:uppercase; }
-.fb-preview-section p.sub { font-size:.8rem; color:var(–gray); margin-bottom:14px; }
-.fb-post-box { background:var(–navy); border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:16px; font-size:.88rem; color:#c8d8ee; line-height:1.7; white-space:pre-wrap; word-break:break-word; max-height:360px; overflow-y:auto; }
-.copy-btn { width:100%; margin-top:12px; background:transparent; border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:11px; font-family:‘Source Sans 3’,sans-serif; font-size:.88rem; font-weight:600; color:var(–cream); cursor:pointer; transition:background .2s,border-color .2s; display:flex; align-items:center; justify-content:center; gap:6px; }
-.copy-btn:hover { background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.3); }
-.copy-btn.copied { color:#6dbe8f; border-color:rgba(109,190,143,.4); }
+/* live badge */
+.live-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(109,190,143,.12);border:1px solid rgba(109,190,143,.3);border-radius:20px;padding:3px 10px;font-size:.72rem;font-weight:700;color:#6dbe8f;text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px}
+.live-dot{width:6px;height:6px;background:#6dbe8f;border-radius:50%;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-.divider { height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent); margin:8px 0 20px; }
-.disclaimer { font-size:.75rem; color:var(–gray); text-align:center; padding:0 16px; line-height:1.6; }
-.disclaimer strong { color:#b0c0d8; }
+.results{display:none}
+.results.on{display:block}
+.results-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px}
+.results-hdr h2{font-family:‘Playfair Display’,serif;font-size:1.2rem;font-weight:700;color:var(–white)}
+.results-hdr h2 span{color:var(–gold)}
+.meta-tag{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.8px;background:rgba(232,160,32,.15);color:var(–gold);border-radius:20px;padding:4px 12px;border:1px solid rgba(232,160,32,.25)}
+
+.news-list{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.news-card{background:var(–deep);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px 18px;position:relative;transition:border-color .2s;animation:fadeUp .4s ease both}
+.news-card:hover{border-color:rgba(232,160,32,.3)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.news-card:nth-child(1){animation-delay:.04s}.news-card:nth-child(2){animation-delay:.08s}
+.news-card:nth-child(3){animation-delay:.12s}.news-card:nth-child(4){animation-delay:.16s}
+.news-card:nth-child(5){animation-delay:.20s}
+.card-rank{position:absolute;top:14px;right:16px;font-family:‘Playfair Display’,serif;font-size:1.7rem;font-weight:900;color:rgba(232,160,32,.13);line-height:1}
+.card-hl{font-family:‘Playfair Display’,serif;font-size:1rem;font-weight:700;color:var(–white);line-height:1.4;margin-bottom:7px;padding-right:32px}
+.card-sum{font-size:.86rem;color:#b0c0d8;line-height:1.6;margin-bottom:10px}
+.card-ft{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.card-src{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(–gold);background:rgba(232,160,32,.1);padding:3px 9px;border-radius:4px}
+.card-age{font-size:.72rem;color:var(–gray)}
+.card-link{font-size:.72rem;color:#6dbe8f;text-decoration:none;font-weight:600}
+.card-link:hover{text-decoration:underline}
+
+.fb-section{background:var(–deep);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:18px;margin-bottom:16px}
+.fb-section h3{font-family:‘Playfair Display’,serif;font-size:1rem;font-weight:700;color:var(–white);margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.fb-badge{background:#1877F2;color:#fff;font-family:‘Source Sans 3’,sans-serif;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase}
+.fb-section p.sub{font-size:.78rem;color:var(–gray);margin-bottom:12px}
+.fb-box{background:var(–navy);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px;font-size:.87rem;color:#c8d8ee;line-height:1.7;white-space:pre-wrap;word-break:break-word;max-height:340px;overflow-y:auto}
+.copy-btn{width:100%;margin-top:10px;background:transparent;border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:11px;font-family:‘Source Sans 3’,sans-serif;font-size:.87rem;font-weight:600;color:var(–cream);cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;justify-content:center;gap:6px}
+.copy-btn:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.3)}
+.copy-btn.copied{color:#6dbe8f;border-color:rgba(109,190,143,.4)}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);margin:4px 0 18px}
+.disclaimer{font-size:.73rem;color:var(–gray);text-align:center;padding:0 16px;line-height:1.6}
+.disclaimer strong{color:#b0c0d8}
 </style>
 
 </head>
 <body>
 
 <header>
-  <div class="flag-stripe">
-    <span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span>
-  </div>
+  <div class="flag"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span></div>
   <h1>OFW News <span>Digest</span></h1>
-  <p>Automated Headline Summarizer &#8212; Prototype</p>
+  <p>Real-Time Headline Summarizer &#8212; Live News Edition</p>
 </header>
 
 <main>
 
-  <div class="api-section">
-    <label>&#128273; Groq API Key &#8212; Free, No Credit Card</label>
-    <input type="password" id="apiKey" placeholder="Paste your Groq API key here..." />
-    <div class="api-hint">
-      Get your free key in 3 steps:
-      <ol class="steps">
-        <li data-n="1.">Go to <a href="https://console.groq.com/keys" target="_blank">console.groq.com/keys</a></li>
-        <li data-n="2.">Sign up free with Google or email &#8212; no credit card needed</li>
-        <li data-n="3.">Click <strong>"Create API Key"</strong> &#8594; copy and paste it above</li>
+  <!-- API KEYS -->
+
+  <div class="card gold-border">
+    <div class="card-label"><span class="dot"></span> Step 1 &mdash; News API Key (GNews &mdash; Free)</div>
+    <div class="field">
+      <input type="password" id="gnewsKey" placeholder="Paste your GNews API key here..."/>
+    </div>
+    <div class="hint">
+      Get your free key &mdash; no credit card needed:
+      <ol>
+        <li data-n="1.">Go to <a href="https://gnews.io/register" target="_blank">gnews.io/register</a></li>
+        <li data-n="2.">Sign up free &rarr; verify your email</li>
+        <li data-n="3.">Go to your <a href="https://gnews.io/dashboard" target="_blank">dashboard</a> &rarr; copy your API key</li>
       </ol>
-      Your key stays only in this browser tab and is never stored anywhere.
+      Free plan: 100 requests/day. More than enough for 2 runs daily.
     </div>
   </div>
 
-  <div class="controls">
-    <div class="controls-row">
+  <div class="card gold-border">
+    <div class="card-label"><span class="dot"></span> Step 2 &mdash; AI Summarizer Key (Groq &mdash; Free)</div>
+    <div class="field">
+      <input type="password" id="groqKey" placeholder="Paste your Groq API key here..."/>
+    </div>
+    <div class="hint">
+      Get your free key &mdash; no credit card needed:
+      <ol>
+        <li data-n="1.">Go to <a href="https://console.groq.com/keys" target="_blank">console.groq.com/keys</a></li>
+        <li data-n="2.">Sign up free with Google or email</li>
+        <li data-n="3.">Click <strong>"Create API Key"</strong> &rarr; copy and paste above</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- CONTROLS -->
+
+  <div class="card dim-border">
+    <div class="field-row">
       <div class="field">
         <label>Schedule Run</label>
         <select id="schedule">
-          <option value="morning">&#9728; Morning Run (past 12 hrs)</option>
-          <option value="evening">&#127769; Evening Run (past 8 hrs)</option>
+          <option value="12">&#9728; Morning Run (past 12 hrs)</option>
+          <option value="8">&#127769; Evening Run (past 8 hrs)</option>
         </select>
       </div>
       <div class="field">
         <label>Region Focus</label>
         <select id="region">
-          <option value="Global">&#127757; Global</option>
-          <option value="Middle East">Middle East</option>
-          <option value="Europe">Europe</option>
-          <option value="Asia">Asia</option>
-          <option value="Americas">Americas</option>
-          <option value="Africa">Africa</option>
+          <option value="global">&#127757; Global</option>
+          <option value="middle east">Middle East</option>
+          <option value="europe">Europe</option>
+          <option value="asia">Asia</option>
+          <option value="americas">Americas</option>
+          <option value="africa">Africa</option>
         </select>
-      </div>
-      <div class="field topics-field">
-        <label>Keywords / Topics (optional)</label>
-        <input type="text" id="topics" placeholder="e.g. OFW rights, remittance, deployment ban" />
       </div>
     </div>
     <button class="run-btn" id="runBtn" onclick="runDigest()">
@@ -154,88 +174,134 @@ main { max-width:720px; margin:0 auto; padding:28px 16px 0; }
     </button>
   </div>
 
-  <div class="status-bar" id="statusBar">
-    <div class="spinner"></div>
-    <span id="statusText">Connecting to Groq...</span>
-  </div>
+  <div class="status-bar" id="statusBar"><div class="spinner"></div><span id="statusText">Starting...</span></div>
+  <div class="err" id="errBox"></div>
 
-  <div class="error-box" id="errorBox"></div>
+  <!-- RESULTS -->
 
   <div class="results" id="results">
-    <div class="results-header">
-      <h2>Top <span>5</span> Headlines</h2>
+    <div class="results-hdr">
+      <h2>Top <span>5</span> Real Headlines</h2>
       <span class="meta-tag" id="metaTag">Morning Run</span>
     </div>
+    <div class="live-badge"><span class="live-dot"></span> Live News</div>
     <div class="news-list" id="newsList"></div>
     <div class="divider"></div>
-    <div class="fb-preview-section">
+    <div class="fb-section">
       <h3>Facebook Post Preview <span class="fb-badge">Facebook</span></h3>
-      <p class="sub">Ready-to-post text for your OFW Facebook Page</p>
-      <div class="fb-post-box" id="fbPost"></div>
-      <button class="copy-btn" id="copyBtn" onclick="copyPost()">
-        &#128203; Copy Post to Clipboard
-      </button>
+      <p class="sub">Ready-to-post text generated from real headlines</p>
+      <div class="fb-box" id="fbPost"></div>
+      <button class="copy-btn" id="copyBtn" onclick="copyPost()">&#128203; Copy Post to Clipboard</button>
     </div>
   </div>
 
   <p class="disclaimer">
-    <strong>Powered by Groq (free tier &#8212; no credit card ever).</strong>
-    Simulates what your automated digest will generate at 8 AM and 6 PM Philippine time.
+    <strong>Real news from GNews &bull; Summarized by Groq AI.</strong>
+    Strictly filters articles published within your selected time window.
   </p>
 
 </main>
 
 <script>
-  function setStatus(msg) { document.getElementById('statusText').textContent = msg; document.getElementById('statusBar').classList.add('visible'); }
-  function hideStatus() { document.getElementById('statusBar').classList.remove('visible'); }
-  function showError(msg) { var el = document.getElementById('errorBox'); el.innerHTML = msg; el.classList.add('visible'); }
-  function hideError() { document.getElementById('errorBox').classList.remove('visible'); }
-  function escHtml(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function status(msg){ document.getElementById('statusText').textContent=msg; document.getElementById('statusBar').classList.add('on'); }
+  function hideStatus(){ document.getElementById('statusBar').classList.remove('on'); }
+  function showErr(msg){ var e=document.getElementById('errBox'); e.innerHTML=msg; e.classList.add('on'); }
+  function hideErr(){ document.getElementById('errBox').classList.remove('on'); }
+  function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-  async function runDigest() {
-    var apiKey = document.getElementById('apiKey').value.trim();
-    if (!apiKey) {
-      showError('Please paste your Groq API key first. Get one free at <a href="https://console.groq.com/keys" target="_blank" style="color:#f5c050;font-weight:600;">console.groq.com/keys</a>');
-      return;
-    }
+  function timeAgo(dateStr){
+    var diff = (Date.now() - new Date(dateStr).getTime()) / 60000;
+    if(diff < 60) return Math.round(diff) + ' min ago';
+    if(diff < 1440) return Math.round(diff/60) + ' hrs ago';
+    return Math.round(diff/1440) + ' days ago';
+  }
 
-    var schedule  = document.getElementById('schedule').value;
-    var region    = document.getElementById('region').value;
-    var topics    = document.getElementById('topics').value.trim();
-    var hours     = schedule === 'morning' ? 12 : 8;
-    var runLabel  = schedule === 'morning' ? 'Morning Run' : 'Evening Run';
-    var topicLine = topics ? ' Prioritize: ' + topics + '.' : '';
+  async function runDigest(){
+    var gnewsKey = document.getElementById('gnewsKey').value.trim();
+    var groqKey  = document.getElementById('groqKey').value.trim();
+    var hours    = parseInt(document.getElementById('schedule').value);
+    var region   = document.getElementById('region').value;
+    var runLabel = hours === 12 ? 'Morning Run' : 'Evening Run';
 
-    hideError();
-    document.getElementById('results').classList.remove('visible');
+    if(!gnewsKey) { showErr('Please paste your <strong>GNews API key</strong> first. Get one free at <a href="https://gnews.io/register" target="_blank" style="color:#f5c050">gnews.io/register</a>'); return; }
+    if(!groqKey)  { showErr('Please paste your <strong>Groq API key</strong> first. Get one free at <a href="https://console.groq.com/keys" target="_blank" style="color:#f5c050">console.groq.com/keys</a>'); return; }
+
+    hideErr();
+    document.getElementById('results').classList.remove('on');
     document.getElementById('runBtn').disabled = true;
 
-    var systemPrompt = 'You are an editorial assistant for an OFW (Overseas Filipino Workers) Facebook news page. '
-      + 'You always reply with ONLY a raw JSON object — no markdown, no code fences, no explanation before or after. Just the JSON.';
-
-    var userPrompt = 'Create a realistic OFW news digest for the past ' + hours + ' hours. Region: ' + region + '.' + topicLine + '\n'
-      + 'Generate exactly 5 plausible OFW stories covering: labor rights, deployment bans, remittances, repatriation, welfare, recruitment fraud, visa policies.\n\n'
-      + 'Required JSON format:\n'
-      + '{"run":"' + runLabel + '","region":"' + region + '","headlines":['
-      + '{"rank":1,"headline":"...","summary":"...","source":"...","relevance":"..."},'
-      + '{"rank":2,"headline":"...","summary":"...","source":"...","relevance":"..."},'
-      + '{"rank":3,"headline":"...","summary":"...","source":"...","relevance":"..."},'
-      + '{"rank":4,"headline":"...","summary":"...","source":"...","relevance":"..."},'
-      + '{"rank":5,"headline":"...","summary":"...","source":"...","relevance":"..."}'
-      + '],"facebook_post":"Engaging FB post with emojis, all 5 stories with source credits, and a call to action. Under 400 words."}';
-
     try {
-      setStatus('Connecting to Groq...');
+      // ── STEP 1: Fetch real recent news from GNews ──────────────────────
+      status('Fetching real OFW news published in the past ' + hours + ' hours...');
 
-      var response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      // Build time filter: from = now minus X hours
+      var fromDate = new Date(Date.now() - hours * 3600 * 1000);
+      var fromStr  = fromDate.toISOString().slice(0,19) + 'Z'; // e.g. 2024-01-01T06:00:00Z
+
+      // Region filter additions
+      var regionQuery = '';
+      if(region === 'middle east') regionQuery = ' (Saudi Arabia OR UAE OR Kuwait OR Qatar OR Bahrain OR Oman)';
+      else if(region !== 'global') regionQuery = ' ' + region;
+
+      var query = encodeURIComponent('OFW OR "overseas Filipino" OR "Filipino workers"' + regionQuery);
+      var gnewsUrl = 'https://gnews.io/api/v4/search?q=' + query
+        + '&lang=en'
+        + '&max=10'
+        + '&from=' + encodeURIComponent(fromStr)
+        + '&sortby=publishedAt'
+        + '&apikey=' + encodeURIComponent(gnewsKey);
+
+      var newsRes  = await fetch(gnewsUrl);
+      var newsData = await newsRes.json();
+
+      if(!newsRes.ok){
+        var nm = (newsData && newsData.errors && newsData.errors[0]) || ('GNews error ' + newsRes.status);
+        if(newsRes.status === 403 || String(nm).indexOf('apikey') > -1) nm = 'Invalid GNews API key. Please check it at gnews.io/dashboard and try again.';
+        throw new Error(nm);
+      }
+
+      var articles = newsData.articles || [];
+
+      if(articles.length === 0){
+        throw new Error(
+          'No OFW news found in the past ' + hours + ' hours for region: ' + region + '. '
+          + 'This can happen during slow news periods. Try switching to "Global" region or a longer time window.'
+        );
+      }
+
+      // ── STEP 2: Send real articles to Groq for summarization ───────────
+      status('Found ' + articles.length + ' real articles. Summarizing with AI...');
+
+      // Build a plain-text list of articles for the AI
+      var articleList = articles.slice(0,10).map(function(a, i){
+        return (i+1) + '. TITLE: ' + a.title
+          + '\n   SOURCE: ' + (a.source && a.source.name ? a.source.name : 'Unknown')
+          + '\n   PUBLISHED: ' + a.publishedAt
+          + '\n   DESCRIPTION: ' + (a.description || 'No description');
+      }).join('\n\n');
+
+      var systemPrompt = 'You are an editorial assistant for an OFW (Overseas Filipino Workers) Facebook news page. '
+        + 'You always reply with ONLY a raw JSON object — no markdown fences, no explanation, just the JSON.';
+
+      var userPrompt = 'From the following REAL news articles published in the past ' + hours + ' hours, '
+        + 'select the TOP 5 most relevant and important for OFW readers. '
+        + 'Write a clear summary for each in plain English.\n\n'
+        + 'REAL ARTICLES:\n' + articleList + '\n\n'
+        + 'Reply with ONLY this JSON structure:\n'
+        + '{"run":"' + runLabel + '","region":"' + region + '","headlines":['
+        + '{"rank":1,"headline":"exact or slightly cleaned title","summary":"2-sentence summary in plain English","source":"source name","published":"publishedAt value","relevance":"why OFWs should care"},'
+        + '{"rank":2,"headline":"...","summary":"...","source":"...","published":"...","relevance":"..."},'
+        + '{"rank":3,"headline":"...","summary":"...","source":"...","published":"...","relevance":"..."},'
+        + '{"rank":4,"headline":"...","summary":"...","source":"...","published":"...","relevance":"..."},'
+        + '{"rank":5,"headline":"...","summary":"...","source":"...","published":"...","relevance":"..."}'
+        + '],"facebook_post":"Engaging FB post with emojis, all 5 real stories with source names, and a call to action. Under 400 words."}';
+
+      var groqRes  = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + apiKey
-        },
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + groqKey },
         body: JSON.stringify({
           model: 'llama-3.3-70b-versatile',
-          temperature: 0.7,
+          temperature: 0.4,
           max_tokens: 2048,
           messages: [
             { role: 'system', content: systemPrompt },
@@ -244,70 +310,82 @@ main { max-width:720px; margin:0 auto; padding:28px 16px 0; }
         })
       });
 
-      setStatus('Building your digest...');
+      var groqTxt  = await groqRes.text();
+      var groqData;
+      try { groqData = JSON.parse(groqTxt); } catch(e){ throw new Error('Unexpected AI response. Please try again.'); }
 
-      var txt = await response.text();
-      var data;
-      try { data = JSON.parse(txt); } catch(e) { throw new Error('Unexpected response. Please try again.'); }
-
-      if (!response.ok) {
-        var msg = (data && data.error && data.error.message) || ('Error ' + response.status);
-        if (response.status === 401) msg = 'Invalid API key. Please check your key at console.groq.com/keys and try again.';
-        if (response.status === 429) msg = 'Rate limit reached. Please wait 30 seconds and try again.';
-        throw new Error(msg);
+      if(!groqRes.ok){
+        var gm = (groqData && groqData.error && groqData.error.message) || ('Groq error ' + groqRes.status);
+        if(groqRes.status === 401) gm = 'Invalid Groq API key. Please check it at console.groq.com/keys.';
+        if(groqRes.status === 429) gm = 'Groq rate limit reached. Please wait 30 seconds and try again.';
+        throw new Error(gm);
       }
 
       var rawText = '';
-      try { rawText = data.choices[0].message.content; } catch(e) {}
-      if (!rawText) throw new Error('Empty response. Please try again.');
+      try { rawText = groqData.choices[0].message.content; } catch(e){}
+      if(!rawText) throw new Error('Empty AI response. Please try again.');
 
       rawText = rawText.replace(/```json/gi,'').replace(/```/g,'').trim();
       var f = rawText.indexOf('{'), l = rawText.lastIndexOf('}');
-      if (f === -1 || l === -1) throw new Error('Could not read response. Please try again.');
+      if(f===-1||l===-1) throw new Error('Could not parse AI response. Please try again.');
 
       var parsed;
-      try { parsed = JSON.parse(rawText.slice(f, l+1)); } catch(e) { throw new Error('Could not parse response. Please try again.'); }
-      if (!Array.isArray(parsed.headlines) || !parsed.headlines.length) throw new Error('No headlines returned. Please try again.');
+      try { parsed = JSON.parse(rawText.slice(f,l+1)); } catch(e){ throw new Error('JSON parse error. Please try again.'); }
+      if(!Array.isArray(parsed.headlines)||!parsed.headlines.length) throw new Error('No headlines in response. Please try again.');
+
+      // Attach original URLs from GNews articles to headlines (match by source name)
+      var urlMap = {};
+      articles.forEach(function(a){ if(a.source && a.source.name) urlMap[a.source.name.toLowerCase()] = a.url; });
+      parsed.headlines.forEach(function(h){
+        h.url = urlMap[(h.source||'').toLowerCase()] || null;
+      });
 
       hideStatus();
-      renderResults(parsed);
+      renderResults(parsed, hours);
 
-    } catch(err) {
+    } catch(err){
       hideStatus();
-      showError('&#9888; ' + (err.message || 'Something went wrong. Please try again.'));
+      showErr('&#9888; ' + (err.message || 'Something went wrong. Please try again.'));
     } finally {
       document.getElementById('runBtn').disabled = false;
     }
   }
 
-  function renderResults(data) {
-    document.getElementById('metaTag').textContent = data.run + ' \u00b7 ' + data.region;
+  function renderResults(data, hours){
+    document.getElementById('metaTag').textContent = data.run + ' \u00b7 Past ' + hours + ' hrs \u00b7 ' + data.region;
     var list = document.getElementById('newsList');
     list.innerHTML = '';
-    data.headlines.forEach(function(item, i) {
+    data.headlines.forEach(function(item, i){
       var c = document.createElement('div');
       c.className = 'news-card';
-      c.style.animationDelay = (i * 0.07 + 0.05) + 's';
-      c.innerHTML = '<div class="card-num">' + item.rank + '</div>'
-        + '<div class="card-headline">' + escHtml(item.headline) + '</div>'
-        + '<div class="card-summary">'  + escHtml(item.summary)  + '</div>'
-        + '<div class="card-footer"><span class="card-source">' + escHtml(item.source) + '</span>'
-        + '<span class="card-relevance">' + escHtml(item.relevance) + '</span></div>';
+      c.style.animationDelay = (i * 0.07 + 0.04) + 's';
+      var age = item.published ? timeAgo(item.published) : '';
+      var linkHtml = item.url
+        ? '<a class="card-link" href="' + esc(item.url) + '" target="_blank">Read article &rarr;</a>'
+        : '';
+      c.innerHTML = '<div class="card-rank">' + item.rank + '</div>'
+        + '<div class="card-hl">'  + esc(item.headline)  + '</div>'
+        + '<div class="card-sum">' + esc(item.summary)   + '</div>'
+        + '<div class="card-ft">'
+          + '<span class="card-src">' + esc(item.source) + '</span>'
+          + '<span class="card-age">' + esc(age) + '</span>'
+          + linkHtml
+        + '</div>';
       list.appendChild(c);
     });
     document.getElementById('fbPost').textContent = data.facebook_post || '';
     document.getElementById('copyBtn').textContent = 'Copy Post to Clipboard';
     document.getElementById('copyBtn').classList.remove('copied');
-    document.getElementById('results').classList.add('visible');
-    setTimeout(function() { document.getElementById('results').scrollIntoView({ behavior:'smooth', block:'start' }); }, 100);
+    document.getElementById('results').classList.add('on');
+    setTimeout(function(){ document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'}); }, 100);
   }
 
-  function copyPost() {
-    navigator.clipboard.writeText(document.getElementById('fbPost').textContent).then(function() {
+  function copyPost(){
+    navigator.clipboard.writeText(document.getElementById('fbPost').textContent).then(function(){
       var btn = document.getElementById('copyBtn');
       btn.textContent = 'Copied!';
       btn.classList.add('copied');
-      setTimeout(function() { btn.textContent = 'Copy Post to Clipboard'; btn.classList.remove('copied'); }, 2500);
+      setTimeout(function(){ btn.textContent = 'Copy Post to Clipboard'; btn.classList.remove('copied'); }, 2500);
     });
   }
 </script>
